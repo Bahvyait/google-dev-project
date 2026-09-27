@@ -1,0 +1,6 @@
+{
+  "name": "RoomieBite AI",
+  "description": "AI Roommate Meal Arbitrator - Resolving kitchen conflicts, syncing pantry stock, and generating consensus dinner menus for Flat 402.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

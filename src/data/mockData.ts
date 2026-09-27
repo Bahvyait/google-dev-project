@@ -1,0 +1,228 @@
+import { Roommate, PantryItem, MealArbitrationResult, UpcomingMeal } from '../types';
+
+export const LOGO_URL = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBGv8bFZ92Z1thuWOUVnFlm-N72JGMjqgUQIpulWwynAMYKdmpvV7Q9kGeE0gv8jDK81CETioOFAHQGn0Zvi-kC8x4ZaUJrVsm-Or2tZ0di3P-iIzwZVU3BKFSLBwB82NdghtRwOq939mm_4cWzT68EdYM-JUkvRoi7UyexOYT9fQ0vKrh8NQasVmmQlnpXWqe3_1vG84GBpn-Ov44pn2htRBY84IxIl-2MRWMCfnFbVMGDdVYqrqc';
+export const USER_AVATAR_URL = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBCeNjBFrTb8S_qMdXKj66gJxQrBdmucaJpclEJeJDsvVRfBC0frM5_US1HtyXOzxOGNOmTiHvuOEjFDuxyfwrgdvvNDTNNT_OXF2le-gCuOMJlFOo9rS4xk5u-SGdZH-z4fJ0j8wtFaHcVSu-PQdb9rmheWzL9xXU-ZAC9I-NGX_KBTFZIHGvpUvdWhyePrBJt3JnJokeB3eyN8XGUaLZP7ZnSEGxBWJK8Gr5jJzRjEXEXDMIrBg0';
+export const DISH_IMAGE_RESOLVER = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZFTDZkKGX2d3pk6pn0Lhgn4Y3ftw6SRSr3G5F9bhy4dRn3I6I18TYEvL79ErgG0MEyDULTupx78SmVgxisiOVFOkCder7Ao-E6pL70M_mdWNXcJ7i4chL412flq-Di4psy00-wRFD_E_GmH_GKHIhRiw8EqE4d-ay7SGcKxcE8gFLocCH_dknr8l-RIM2NzW5JugGtpaZ5R2t7aOHsLrBfQvmIJoiQNVVRv8JWfIcLE0msRRWmnw';
+export const DISH_IMAGE_WEEKLY = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAcDT43Hv_IWiUMjUIfDuXHI8RzXxOONupvDqg847xI_mxAgD8FIk-Oqub9sq6ENBkSiWnno32BQJG5ucKy6H8EczO10B4zRddyNKWQH7oNdshd5XkCEuIehGSazQoVHsWvbM9S7EotFis1TgcrewDyfPznxfAUvm67dQvZY_08HgKZVuAJoAZjjxpseNpUECrjahdGLF5PUVgZLh1pE-4s3pfT9gZVGXsL-2MQKOcgX9sog5UVmJ8';
+export const KITCHEN_MOOD_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDy6s5BPxO5axBY0r6rIKMvMlCdY9ePQ79nzXetFI_Y_2DWRJTgMQ2r7QGxyHJWBm6JVlUwQBr26gh5adczCAkgwsOvtDYgc4nbS2T51VcmguGtgSYzhrWSnrkgRQPVBc-dtq6KhjMJLbqHViFcTaCL-fDOmyGRAQjM1ZyUX9DE9BGI9m3JaKtArS-rAV8VWGJEKuJ4GR7WyOm6McfzFtRQLok-rIBPv9jbEpNYREbtKSsYmcvIOyU';
+
+export const INITIAL_ROOMMATES: Roommate[] = [
+  {
+    id: 'bhavya',
+    name: 'Bhavya',
+    initials: 'BH',
+    roleTitle: 'Craving Master',
+    dietaryTags: ['Vegetarian', 'Cheesy'],
+    emoji: '🧀',
+    hungerIndex: 8.5,
+    hungerLabel: '8.5 / 10 • Ravenous',
+    cravingQuote: 'Crispy cheesy Mexican quesadilla or spicy tacos. Needs serious crunch, jalapeños, and lots of melted cheese!',
+    intensity: 'High',
+    weightPercent: 35,
+    satisfactionPercent: 100,
+    highlightTag: 'High Intensity',
+    colorBg: 'bg-primary-fixed',
+    colorText: 'text-on-primary-fixed',
+  },
+  {
+    id: 'rahul',
+    name: 'Rahul',
+    initials: 'RH',
+    roleTitle: 'Midnight Chef',
+    dietaryTags: ['High Spice', 'Speed: <10m'],
+    emoji: '🌶️',
+    hungerIndex: 9.0,
+    hungerLabel: '9.0 / 10 • Critical',
+    cravingQuote: 'Desi Masala 2-minute Maggi with butter and extra fresh green chillies, fast & spicy! My brain is done after work.',
+    intensity: 'Critical',
+    weightPercent: 35,
+    satisfactionPercent: 96,
+    highlightTag: 'Pantry Hero',
+    colorBg: 'bg-tertiary-fixed',
+    colorText: 'text-on-tertiary-fixed',
+  },
+  {
+    id: 'priya',
+    name: 'Priya',
+    initials: 'PR',
+    roleTitle: 'Health Guard',
+    dietaryTags: ['Whole Grain', 'No Takeout'],
+    emoji: '🥗',
+    hungerIndex: 7.0,
+    hungerLabel: '7.0 / 10 • Moderate',
+    cravingQuote: "Wholesome home-cooked wheat roti or roll wrap. Don't want heavy junk or ordering out oily curries again this week.",
+    intensity: 'Moderate',
+    weightPercent: 30,
+    satisfactionPercent: 100,
+    highlightTag: '₹0 Extra Cost',
+    colorBg: 'bg-secondary-container',
+    colorText: 'text-on-secondary-container',
+  },
+];
+
+export const INITIAL_PANTRY: PantryItem[] = [
+  {
+    id: 'item-1',
+    name: 'Whole Wheat Atta & Fresh Roti',
+    quantityNote: 'Plenty • 12 pre-rolled discs in box',
+    category: 'staple',
+    inStock: true,
+    usedInCurrentDish: '4 Rotis used',
+  },
+  {
+    id: 'item-2',
+    name: 'Maggi 2-Minute Masala Noodles',
+    quantityNote: 'Pantry shelf #2 • 3 packets',
+    category: 'instant',
+    inStock: true,
+    usedInCurrentDish: '2 packs deducted',
+  },
+  {
+    id: 'item-3',
+    name: 'Amul Mozzarella & Cheddar Blend',
+    quantityNote: 'Crisper drawer • 250g sealed block',
+    category: 'dairy',
+    inStock: true,
+    usedInCurrentDish: '100g melted',
+  },
+  {
+    id: 'item-4',
+    name: 'Onions, Green Chillies & Cilantro',
+    quantityNote: 'Fresh basket • Freshly washed',
+    category: 'fresh',
+    inStock: true,
+    usedInCurrentDish: 'Spices applied',
+  },
+  {
+    id: 'item-5',
+    name: 'Chaat Masala & Kitchen Spices',
+    quantityNote: 'Full spice box • Jeera, chilli powder',
+    category: 'spice',
+    inStock: true,
+  },
+  {
+    id: 'item-6',
+    name: 'Bell Peppers (Capsicum)',
+    quantityNote: '0 left • Needed for Quesadilla crunch',
+    category: 'fresh',
+    inStock: false,
+    isMissing: true,
+    missingNote: 'Needed for Quesadilla crunch',
+  },
+];
+
+export const ARBITRATED_DISH: MealArbitrationResult = {
+  id: 'dish-184',
+  title: 'Cheesy Maggi-Stuffed Roti Quesadilla',
+  subtitle: 'The Golden Triangle of College Flat Dining: Crispy Whole Wheat Roti Exterior + Gooey Mozzarella + Masala Maggi Core.',
+  compromiseLogic: '“Satisfies Priya’s whole-wheat home food rule, Rahul’s spicy masala noodle fix, and Bhavya’s molten cheesy crunch craving without ordering takeout!”',
+  consensusScore: 98,
+  cookTimeMins: 22,
+  foodWasteStatus: 'Zero Food Waste',
+  image: DISH_IMAGE_RESOLVER,
+  dishType: 'Signature Peacemaker Fusion',
+  satisfactionBreakdown: [
+    {
+      roommate: 'Bhavya',
+      focus: 'Crunch & Cheese (Bhavya)',
+      percentage: 95,
+      colorClass: 'bg-primary-container',
+    },
+    {
+      roommate: 'Rahul',
+      focus: 'Spice & Comfort (Rahul)',
+      percentage: 92,
+      colorClass: 'bg-tertiary',
+    },
+    {
+      roommate: 'Priya',
+      focus: 'Wholesome & Economical (Priya)',
+      percentage: 100,
+      colorClass: 'bg-secondary',
+    },
+  ],
+  pantryDeductions: [
+    {
+      name: 'Maggi Masala 2-Minute Noodles',
+      deductionNote: '2 packs deducted',
+      checked: true,
+    },
+    {
+      name: 'Fresh Leftover Whole Wheat Rotis',
+      deductionNote: '4 Rotis used',
+      checked: true,
+    },
+    {
+      name: 'Mozzarella & Cheddar Blend',
+      deductionNote: '100g melted',
+      checked: true,
+    },
+    {
+      name: 'Green Chillies, Onion & Oregano',
+      deductionNote: 'Spices applied',
+      checked: true,
+    },
+  ],
+  dutyFlow: [
+    {
+      step: 1,
+      roommate: 'Rahul',
+      role: 'Prep & Chillies Chopping',
+      instruction: 'Slice chillies, prep cast-iron pan, lay out rotis.',
+      status: 'Done',
+    },
+    {
+      step: 2,
+      roommate: 'Bhavya',
+      role: 'Maggi Reduction & Seasoning',
+      instruction: 'Cook dry-style spicy Maggi with secret oregano pinch.',
+      status: 'Active',
+    },
+    {
+      step: 3,
+      roommate: 'Priya',
+      role: 'Toasting, Cheese Melt & Plating',
+      instruction: 'Assemble quesadillas on tawa until golden crispy.',
+      status: 'Next Up',
+    },
+  ],
+};
+
+export const UPCOMING_MEALS: UpcomingMeal[] = [
+  {
+    id: 'meal-mon-lunch',
+    dateStr: 'Mon 28 Sep • Lunch',
+    mealSlot: 'Lunch',
+    title: 'Paneer Bhurji Kathi Rolls',
+    description: 'Spiced crumbled cottage cheese with bell peppers rolled into parathas.',
+    chef: 'Rahul',
+    cleanup: 'Bhavya',
+    pantryStatus: 'Pantry: Atta + Paneer in Fridge',
+    isGroceryAlert: false,
+    status: 'Locked',
+  },
+  {
+    id: 'meal-mon-dinner',
+    dateStr: 'Mon 28 Sep • Dinner',
+    mealSlot: 'Dinner',
+    title: 'Creamy Tomato Masala Pasta',
+    description: 'Fusilli pasta bathed in a spicy Indian-style roasted garlic and herb pomodoro.',
+    chef: 'Priya',
+    cleanup: 'Rahul',
+    pantryStatus: 'Grocery alert: Buy Pasta Sauce',
+    isGroceryAlert: true,
+    status: 'Locked',
+  },
+  {
+    id: 'meal-tue-dinner',
+    dateStr: 'Tue 29 Sep • Dinner',
+    mealSlot: 'Dinner',
+    title: 'Tawa Pulao with Boondi Raita',
+    description: 'Street-style spiced basmati rice tossed with peas, potatoes, and pav bhaji spice.',
+    chef: 'Bhavya',
+    cleanup: 'Priya',
+    pantryStatus: 'Pantry: Rice & Veggies Ready',
+    isGroceryAlert: false,
+    status: 'Locked',
+  },
+];
